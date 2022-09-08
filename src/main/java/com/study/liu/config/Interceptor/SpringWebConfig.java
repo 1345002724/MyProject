@@ -1,4 +1,4 @@
-package com.stuty.liu.config.Interceptor;
+package com.study.liu.config.Interceptor;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

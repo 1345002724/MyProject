@@ -1,4 +1,4 @@
-package com.stuty.liu;
+package com.study.liu;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

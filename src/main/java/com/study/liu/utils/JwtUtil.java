@@ -1,11 +1,10 @@
-package com.stuty.liu.utils;
+package com.study.liu.utils;
 
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
@@ -16,14 +15,16 @@ import java.util.Map;
 public class JwtUtil {
 
     /** 密匙*/
-    private static final String SING="LIUYISHOU@Token666666";
+    private static final String SING="liuyishou@jwt6666";
+    /** 超时时间：单位分钟*/
+    private static final Integer TimeOut=30;
 
     //生成令牌
     public static String getToken1(Map<String,String> map){
         //获取日历对象
         Calendar calendar=Calendar.getInstance();
         //设置过期时间
-        calendar.add(Calendar.MINUTE,30);
+        calendar.add(Calendar.MINUTE,TimeOut);
         //新建一个JWT的Builder对象
         JWTCreator.Builder builder = JWT.create();
         //将map集合中的数据设置进payload

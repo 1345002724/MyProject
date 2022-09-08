@@ -1,4 +1,4 @@
-package com.stuty.liu.utils;
+package com.study.liu.utils;
 
 
 /**

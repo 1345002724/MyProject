@@ -1,9 +1,9 @@
-package com.stuty.liu.config.Interceptor;
+package com.study.liu.config.Interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.stuty.liu.utils.CommonResult;
-import com.stuty.liu.utils.JwtUtil;
+import com.study.liu.utils.CommonResult;
+import com.study.liu.utils.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,7 +44,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                 return false;
             }
         } else {
-            return false;
+            return true;
         }
     }
 
