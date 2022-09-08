@@ -15,12 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
-
+/**
+ * @description：登录验证，建议用redis实现，jwt存在过期token不在生效问题
+ * @author     ：liu
+ * @date       ：2022-08-31
+ */
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
-    //是否开启登录验证
+
     @Value("${LoginPremission}")
     boolean LoginPremission;
 
@@ -28,9 +32,10 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+        //是否开启登录验证
         if (LoginPremission) {
             //判断是否登录状态
-            String token = request.getHeader("Authorization");
+            String token = request.getHeader("token");
             token = token == null ? "" : token;   //判断token防止程序报错
             try {
                 DecodedJWT tokenInfo = JwtUtil.getTokenInfo(token);
@@ -40,7 +45,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                 logger.debug("登录失败,拦截器处抛出");
                 response.setContentType("json/text;charset=utf-8");
                 PrintWriter out = response.getWriter();
-                out.write(JSONObject.toJSONString(new CommonResult(400, "错误", e)));
+                out.write(JSONObject.toJSONString(new CommonResult(400, "登录失败,拦截器处抛出", e)));
                 return false;
             }
         } else {

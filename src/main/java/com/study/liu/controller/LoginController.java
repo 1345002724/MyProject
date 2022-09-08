@@ -1,6 +1,5 @@
 package com.study.liu.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.study.liu.service.LoginService;
 import com.study.liu.utils.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +24,6 @@ public class LoginController {
     public CommonResult login(@RequestBody Map<String,Object> request)  {
 
         CommonResult Result = CommonResult.success();
-        //Map<String,Object> request = JSON.parseObject(LoginBody);
-
         return loginService.login(request,Result);
     }
 }
