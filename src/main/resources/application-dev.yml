@@ -1,0 +1,27 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /study
+
+spring:
+  datasource:
+   db1:
+     type: com.alibaba.druid.pool.DruidDataSource
+     driverClassName: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+     username: root
+     password: 1
+   db2:
+     driver-class-name: oracle.jdbc.driver.OracleDriver
+     url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+     username: HIS
+     password: 1
+
+logging:
+  config: classpath:logback.xml
+
+  configuration: #数据库下划线
+    map-underscore-to-camel-case: true
+
+
+LoginPremission: true # 是否开启登录验证

@@ -1,0 +1,9 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /liu
+
+logging:
+  config: classpath:logback.xml
+
+LoginPremission: true # 是否开启登录验证
