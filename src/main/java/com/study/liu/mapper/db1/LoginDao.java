@@ -7,5 +7,8 @@ import java.util.Map;
 
 @Repository
 public interface LoginDao {
+
+    List<Map<String, Object>> selectMenuTreeAll() ;
+
     List<Map<String,Object>> login(Map<String,Object> map);
 }

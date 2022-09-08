@@ -3,14 +3,13 @@ package com.study.liu.service;
 import com.study.liu.mapper.db1.LoginDao;
 import com.study.liu.utils.CommonResult;
 import com.study.liu.utils.JwtUtil;
+import com.study.liu.utils.login.LoginUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -42,4 +41,19 @@ public class LoginService {
         }
         return Result;
     }
+
+    public List<Map<String, Object>> selectMenuTreeByUserId(Map<String, Object> request) {
+        List<Map<String, Object>> menus = null;
+        Long userId = (Long) request.get("userId");
+        String username = request.get("username") + "";
+
+        //访客用户从配置文件读取菜单
+        if (username.equals("guest")) {
+            log.info("访客用户从文件读取菜单列表");
+        }
+        menus = loginDao.selectMenuTreeAll();
+        List<Map<String, Object>> childPerms = LoginUtils.getParentList(menus, 0);
+        return childPerms;
+    }
+
 }

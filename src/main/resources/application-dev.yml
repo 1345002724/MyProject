@@ -23,4 +23,4 @@ logging:
     map-underscore-to-camel-case: true
 
 
-LoginPremission: true # 是否开启登录验证
+LoginPremission: false # 是否开启登录验证
