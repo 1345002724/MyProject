@@ -1,5 +1,7 @@
 package com.study.liu.service;
 
+
+import com.alibaba.fastjson.JSON;
 import com.study.liu.mapper.db1.LoginDao;
 import com.study.liu.utils.CommonResult;
 import com.study.liu.utils.JwtUtil;
@@ -52,6 +54,7 @@ public class LoginService {
             log.info("访客用户从文件读取菜单列表");
         }
         menus = loginDao.selectMenuTreeAll();
+
         List<Map<String, Object>> childPerms = LoginUtils.getParentList(menus, 0);
         return childPerms;
     }

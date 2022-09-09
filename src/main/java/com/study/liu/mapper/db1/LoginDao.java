@@ -1,5 +1,4 @@
 package com.study.liu.mapper.db1;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
