@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
  /**
  * @description：通用接口异常处理
  * @author     ：liu
- * @date       ：2022-08-31
+ * @date       ：2021-08-31
  */
 @Slf4j
 public class CommonException extends RuntimeException {

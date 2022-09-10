@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 /**
  * @description：登录验证，建议用redis实现，jwt存在过期token不在生效问题
  * @author     ：liu
- * @date       ：2022-08-31
+ * @date       ：2021-08-31
  */
 @Component
 public class LoginInterceptor implements HandlerInterceptor {

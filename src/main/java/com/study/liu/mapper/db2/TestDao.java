@@ -7,5 +7,5 @@ import java.util.Map;
 
 @Service
 public interface TestDao {
-    List<Map<String,Object>> TestDao();
+    List<Map<String,Object>> queryByPage(Map<String, Object> Page);
 }

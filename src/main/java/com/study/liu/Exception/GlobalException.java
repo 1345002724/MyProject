@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @description：全局异常处理
  * @author     ：liu
- * @date       ：2022-08-31
+ * @date       ：2021-08-31
  */
 @Slf4j
 @ResponseBody

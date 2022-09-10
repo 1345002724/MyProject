@@ -29,6 +29,10 @@ public class CommonResult<T> {
     {
         return new CommonResult(200,"成功","");
     }
+    public static CommonResult failed(Object data)
+    {
+        return new CommonResult(400,"失败",data);
+    }
 
     public Integer getCode() {
         return code;
