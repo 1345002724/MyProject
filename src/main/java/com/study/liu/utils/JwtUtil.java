@@ -17,7 +17,7 @@ public class JwtUtil {
     /** 密匙*/
     private static final String SING="liuyishou@jwt6666";
     /** 超时时间：单位分钟*/
-    private static final Integer TimeOut=30;
+    private static final Integer TimeOut=3000;
 
     //生成令牌
     public static String getToken1(Map<String,String> map){
