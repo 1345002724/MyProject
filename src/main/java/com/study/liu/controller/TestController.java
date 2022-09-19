@@ -10,6 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,4 +40,14 @@ public class TestController {
         testService.queryByPage(result);
         return result;
     }
+
+    public static void main(String[] args) {
+        Map paramters = new HashMap();
+        paramters.put("benzParam","博客");
+        paramters.put("benzParam2","博客3333");
+        Class<?> benzParam = paramters.get("benzParam").getClass();
+        System.out.println(benzParam);
+
+    }
+
 }

@@ -3,6 +3,7 @@ package com.study.liu.controller;
 
 import com.study.liu.service.LoginService;
 import com.study.liu.utils.CommonResult;
+import com.study.liu.utils.login.LoginUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,8 +43,11 @@ public class LoginController {
     {
         Long userId = (Long) request.get("userId");
         List<Map<String, Object>> menus = loginService.selectMenuTreeByUserId(request);
+
         CommonResult result = CommonResult.success();
-        result.setData(menus);
+
+        LoginUtils loginUtils =new LoginUtils();
+        result.setData(loginUtils.buildMenus(menus));
         return result;
     }
 
@@ -59,6 +63,18 @@ public class LoginController {
         CommonResult result=CommonResult.success();
         String token = request.getHeader("Authorization");
         loginService.getInfo(result,token);
+        return result;
+    }
+    /**
+     * @description：退出登录
+     * @author     ：liu
+     * @date       ：2021-08-31
+     */
+    @RequestMapping("/logout")
+    public CommonResult logout()
+    {
+        CommonResult result=CommonResult.success();
+        result.setData("退出登录成功");
         return result;
     }
 }

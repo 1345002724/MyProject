@@ -1,7 +1,7 @@
 server:
   port: 8090
   servlet:
-    context-path: /liu
+    context-path: /study
 
 logging:
   config: classpath:logback.xml

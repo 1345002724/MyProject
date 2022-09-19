@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -57,6 +59,13 @@ public class DataSourceConfigDb2 {
     public SqlSessionTemplate db2sqlsessiontemplate(
             @Qualifier("db2SqlSessionFactory") SqlSessionFactory sessionfactory) {
         return new SqlSessionTemplate(sessionfactory);
+    }
+
+    /******配置事务管理********/
+    //调用@Transactional(rollbackFor = Exception.class,transactionManager = "Db2TransactionManager")
+    @Bean
+    public PlatformTransactionManager Db2TransactionManager(@Qualifier("db2DataSource")DataSource prodDataSource) {
+        return new DataSourceTransactionManager(prodDataSource);
     }
 
 }
