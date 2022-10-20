@@ -40,7 +40,7 @@ public class XaDataSourceConfigDb2 {
 //        oracleXaDataSource.setPassword(XaConfigDb2.getPassword());
 //        oracleXaDataSource.setUser(XaConfigDb2.getUsername());
 
-        //druid连接池
+        //druid连接池(推荐使用druid,使用cj第一次请求会卡)
         DruidXADataSource druidXADataSource = new DruidXADataSource();
         druidXADataSource.setUrl(XaConfigDb2.getUrl());
         druidXADataSource.setUsername(XaConfigDb2.getUsername());
@@ -108,9 +108,9 @@ public class XaDataSourceConfigDb2 {
 
     /****配置jdbcTemplate*****/
 
-//    @Bean
-//    public JdbcTemplate Db2JdbcTemplate(@Qualifier("db2DataSource") DataSource db2DataSource) {
-//        return new JdbcTemplate(db2DataSource);
-//    }
+    @Bean
+    public JdbcTemplate Db2JdbcTemplate(@Qualifier("db2DataSource") DataSource db2DataSource) {
+        return new JdbcTemplate(db2DataSource);
+    }
 
 }

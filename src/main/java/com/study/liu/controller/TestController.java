@@ -32,11 +32,11 @@ public class TestController {
     @Resource(name = "db1SqlSessionTemplate")
         SqlSessionTemplate db1sqlSessionTemplate;
 
-//    @Resource(name = "Db1JdbcTemplate")
-//    JdbcTemplate jdbcTemplate1;
-//
-//    @Resource(name = "Db2JdbcTemplate")
-//    JdbcTemplate jdbcTemplate2;
+    @Resource(name = "Db1JdbcTemplate")
+    JdbcTemplate jdbcTemplate1;
+
+    @Resource(name = "Db2JdbcTemplate")
+    JdbcTemplate jdbcTemplate2;
     /**
      * @description：分页查询
      * @author ：liu
@@ -56,9 +56,9 @@ public class TestController {
         //LoginDao mapper = sqlSession.getMapper(LoginDao.class);
         //List<Map<String, Object>> list = mapper.selectMenuTreeAll();
         //System.out.println(list);
-//
-//        List<Map<String, Object>> list = jdbcTemplate1.queryForList("select * from sys_user");
-//        System.out.println(list);
+
+        List<Map<String, Object>> list = jdbcTemplate1.queryForList("select * from sys_user");
+        System.out.println(list);
     }
     /**
      *

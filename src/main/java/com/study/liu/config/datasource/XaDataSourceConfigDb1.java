@@ -118,8 +118,8 @@ public class XaDataSourceConfigDb1 {
 
 /****配置jdbcTemplate*****/
 
-//    @Bean
-//    public JdbcTemplate Db1JdbcTemplate(@Qualifier("db1DataSource") DataSource db1DataSource) {
-//        return new JdbcTemplate(db1DataSource);
-//    }
+    @Bean
+    public JdbcTemplate Db1JdbcTemplate(@Qualifier("db1DataSource") DataSource db1DataSource) {
+        return new JdbcTemplate(db1DataSource);
+    }
 }
