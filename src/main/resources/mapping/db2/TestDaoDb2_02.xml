@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.study.liu.mapper.db2.TestDao">
+<mapper namespace="com.study.liu.mapper.db2.TestDaoDb2_02">
+    <update id="test02">
+        update gyb_rybm set ryxm='管理员55' where rybm='00000'
+    </update>
 
     <select id="queryByPage" resultType="java.util.Map">
         select * from gyb_rybm

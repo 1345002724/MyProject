@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public interface TestDao {
+public interface TestDaoDb2_02 {
     List<Map<String,Object>> queryByPage(Map<String, Object> Page);
+    Integer test02();
 }

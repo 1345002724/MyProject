@@ -1,3 +1,4 @@
+/*
 package com.study.liu.config.datasource;
 
 
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -61,11 +63,17 @@ public class DataSourceConfigDb2 {
         return new SqlSessionTemplate(sessionfactory);
     }
 
-    /******配置事务管理********/
+    */
+/******配置事务管理********//*
+
     //调用@Transactional(rollbackFor = Exception.class,transactionManager = "Db2TransactionManager")
     @Bean
     public PlatformTransactionManager Db2TransactionManager(@Qualifier("db2DataSource")DataSource prodDataSource) {
         return new DataSourceTransactionManager(prodDataSource);
     }
-
+    @Bean
+    public JdbcTemplate Db2JdbcTemplate(@Qualifier("db2DataSource") DataSource db2DataSource) {
+        return new JdbcTemplate(db2DataSource);
+    }
 }
+*/

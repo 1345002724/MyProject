@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication(exclude = PageHelperAutoConfiguration.class)
 @EnableTransactionManagement
-@MapperScan({"com.study.liu.mapper.db1","com.study.liu.mapper.db2"})
+//@MapperScan({"com.study.liu.mapper.db1","com.study.liu.mapper.db2"})
 @EnableConfigurationProperties
 public class MyProjectApplication {
 

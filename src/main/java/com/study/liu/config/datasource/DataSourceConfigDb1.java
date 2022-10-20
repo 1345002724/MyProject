@@ -1,3 +1,4 @@
+/*
 package com.study.liu.config.datasource;
 
 
@@ -12,8 +13,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -60,11 +63,20 @@ public class DataSourceConfigDb1 {
             @Qualifier("db1SqlSessionFactory") SqlSessionFactory sessionfactory) {
         return new SqlSessionTemplate(sessionfactory);
     }
-    /******配置事务管理********/
+    */
+/******配置事务管理********//*
+
     //调用@Transactional(rollbackFor = Exception.class,transactionManager = "Db1TransactionManager")
     @Bean
     public PlatformTransactionManager Db1TransactionManager(@Qualifier("db1DataSource")DataSource prodDataSource) {
         return new DataSourceTransactionManager(prodDataSource);
     }
+    */
+/****配置jdbcTemplate*****//*
 
+    @Bean
+    public JdbcTemplate Db1JdbcTemplate(@Qualifier("db1DataSource") DataSource db1DataSource) {
+        return new JdbcTemplate(db1DataSource);
+    }
 }
+*/

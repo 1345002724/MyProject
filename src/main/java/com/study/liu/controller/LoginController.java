@@ -5,6 +5,7 @@ import com.study.liu.service.LoginService;
 import com.study.liu.utils.CommonResult;
 import com.study.liu.utils.login.LoginUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ * @description : 系统登录实现
+ * @author      : liu
+ * @date        : 2022/9/23
+ */
 @RestController
 public class LoginController {
 
@@ -21,9 +28,9 @@ public class LoginController {
     LoginService loginService;
 
     /**
-     * @description：系统登录实现
-     * @author     ：liu
-     * @date       ：2021-08-31
+     * @description : 系统登录实现
+     * @author      : liu
+     * @date        : 2021-08-31
      */
     @RequestMapping("/login")
     public CommonResult login(@RequestBody Map<String,Object> request)  {
